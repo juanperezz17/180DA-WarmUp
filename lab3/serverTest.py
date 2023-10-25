@@ -15,4 +15,4 @@ while True:
 		print(from_client)
 		conn.send("I am SERVER\n".encode())
 	conn.close()
-	print(’client disconnected’)
+	print('client disconnected')
