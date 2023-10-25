@@ -47,4 +47,4 @@ for i in range(10):
 
 # 6. use disconnect() to disconnect from the broker.
 client.loop_stop()
-client.disconnec
+client.disconnect()
