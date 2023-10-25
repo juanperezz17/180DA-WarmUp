@@ -2,7 +2,7 @@ import paho.mqtt.client as mqtt
 # 0. define callbacks - functions that run when events happen.
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
-	print("Connection returned result: "+s
+	print("Connection returned result: "+str(rc))
 	# Subscribing in on_connect() means that if we lose the connection and
 	# reconnect then subscriptions will be renewed.
 	client.subscribe("ece180d/test", qos=1)
