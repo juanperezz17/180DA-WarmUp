@@ -13,15 +13,15 @@ def on_connect(client, userdata, flags, rc):
 # The callback of the client when it disconnects.
 def on_disconnect(client, userdata, rc):
 	if rc != 0:
-		print(’Unexpected Disconnect’)
+		print('Unexpected Disconnect')
 	else:
-		print(’Expected Disconnect’)
+		print('Expected Disconnect')
 
 # The default message callback.
 # (won’t be used if only publishing, but can still exist)
 def on_message(client, userdata, message):
-	print(’Received message: "’ + str(message.payload) + ’" on topic "’ +
-		message.topic + ’" with QoS ’ + str(message.qos))
+	print('Received message: "' + str(message.payload) + '" on topic "' +
+		message.topic + '" with QoS ' + str(message.qos))
 
 # 1. create a client instance.
 client = mqtt.Client()
@@ -33,7 +33,7 @@ client.on_disconnect = on_disconnect
 client.on_message = on_message
 
 # 2. connect to a broker using one of the connect*() functions.
-client.connect_async(’test.mosquitto.org’)
+client.connect_async('test.mosquitto.org')
 
 # 3. call one of the loop*() functions to maintain network traffic flow with the broker.
 client.loop_start()
@@ -43,7 +43,7 @@ client.loop_start()
 # 5. use publish() to publish messages to the broker.
 # payload must be a string, bytearray, int, float or None.
 for i in range(10):
-	client.publish(’ece180d/test’, float(np.random.random(1)), qos=1)
+	client.publish('ece180d/test', float(np.random.random(1)), qos=1)
 
 # 6. use disconnect() to disconnect from the broker.
 client.loop_stop()
